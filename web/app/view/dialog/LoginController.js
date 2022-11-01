@@ -24,9 +24,8 @@ Ext.define('Traccar.view.dialog.LoginController', {
     ],
 
     init: function () {
-        this.lookupReference('resetButton').setHidden(!Traccar.app.getServer().get('emailEnabled'));
-        this.lookupReference('registerButton').setDisabled(!Traccar.app.getServer().get('registration'));
-        this.lookupReference('languageField').setValue(Locale.language);
+        this.lookupReference('resetButton').setHidden(true); //!Traccar.app.getServer().get('emailEnabled')
+        this.lookupReference('registerButton').setDisabled(true); //!Traccar.app.getServer().get('registration')
     },
 
     login: function () {

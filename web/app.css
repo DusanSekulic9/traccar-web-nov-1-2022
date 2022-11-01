@@ -12,12 +12,34 @@
     opacity: 0.5;
 }
 
+.x-splitter {
+    background-color: #5fa2dd !important;
+}
+
+.x-collapse-el {
+    background-color: blue !important;
+    color: white !important;
+}
+
+.x-btn.x-btn-pressed.x-btn-default-toolbar-small {
+    background-color: #77bc71 !important;
+}
+
+.x-btn-icon-el-default-toolbar-small {
+    color: gray !important;
+}
+
+
 .toolbar-header-style {
     background-color: #5fa2dd !important;
 }
 
 body.x-border-layout-ct, div.x-border-layout-ct {
     background-color: #bbbbbb !important;
+}
+
+body {
+    background-image: url("/satelit.jpg") !important;
 }
 
 .x-fieldset {

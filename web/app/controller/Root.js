@@ -110,6 +110,7 @@ Ext.define('Traccar.controller.Root', {
         if (success) {
             Traccar.app.setUser(Ext.decode(response.responseText));
             this.loadApp();
+            this.showWelcomeLetter();
         } else {
             this.login = Ext.create('widget.login', {
                 listeners: {
@@ -151,6 +152,11 @@ Ext.define('Traccar.controller.Root', {
     onLogin: function () {
         this.login.close();
         this.loadApp();
+        this.showWelcomeLetter();
+    },
+
+    showWelcomeLetter: function () {
+        console.log(Traccar.app.getUser());
     },
 
     loadApp: function () {

@@ -93,7 +93,7 @@
         'zh_TW': { name: '中文 (Taiwan)', code: 'zh_TW' }
     };
 
-    languageDefault = 'en';
+    languageDefault = 'sr';
     localeParameter = window.location.search.match(/locale=([^&#]+)/);
     locale.language = localeParameter && localeParameter[1];
     if (!(locale.language in locale.languages)) {
@@ -130,22 +130,7 @@
             url: 'l10n/' + languageDefault + '.json',
             callback: function (options, success, response) {
                 window.Strings = Ext.decode(response.responseText);
-                if (Locale.language !== languageDefault) {
-                    Ext.Ajax.request({
-                        url: 'l10n/' + Locale.language + '.json',
-                        callback: function (options, success, response) {
-                            var key, data = Ext.decode(response.responseText);
-                            for (key in data) {
-                                if (data.hasOwnProperty(key)) {
-                                    window.Strings[key] = data[key];
-                                }
-                            }
-                            addScriptFile(debugMode ? 'app.js' : 'app.min.js');
-                        }
-                    });
-                } else {
-                    addScriptFile(debugMode ? 'app.js' : 'app.min.js');
-                }
+                addScriptFile(debugMode ? 'app.js' : 'app.min.js');
             }
         });
 

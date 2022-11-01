@@ -34,85 +34,85 @@ Ext.define('Traccar.view.map.BaseMap', {
 
         server = Traccar.app.getServer();
 
-        type = Traccar.app.getPreference('map', null);
+        type = Traccar.app.getPreference('map', 'osm');
         bingKey = server.get('bingKey');
         locationIqKey = Traccar.app.getAttributePreference('locationIqKey', 'pk.0f147952a41c555a5b70614039fd148b');
 
         layer = new ol.layer.Group({
             title: Strings.mapLayer,
             layers: [
-                new ol.layer.Tile({
-                    title: Strings.mapCustom,
-                    type: 'base',
-                    visible: type === 'custom',
-                    source: new ol.source.XYZ({
-                        url: Ext.String.htmlDecode(server.get('mapUrl')),
-                        attributions: ''
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapCustomArcgis,
-                    type: 'base',
-                    visible: type === 'customArcgis',
-                    source: new ol.source.TileArcGISRest({
-                        url: Ext.String.htmlDecode(server.get('mapUrl'))
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapBingRoad,
-                    type: 'base',
-                    visible: type === 'bingRoad',
-                    source: new ol.source.BingMaps({
-                        key: bingKey,
-                        imagerySet: 'Road'
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapBingAerial,
-                    type: 'base',
-                    visible: type === 'bingAerial',
-                    source: new ol.source.BingMaps({
-                        key: bingKey,
-                        imagerySet: 'Aerial'
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapBingHybrid,
-                    type: 'base',
-                    visible: type === 'bingHybrid',
-                    source: new ol.source.BingMaps({
-                        key: bingKey,
-                        imagerySet: 'AerialWithLabels'
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapCarto,
-                    type: 'base',
-                    visible: type === 'carto',
-                    source: new ol.source.XYZ({
-                        url: 'https://cartodb-basemaps-{a-d}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
-                        attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
-                            'contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapAutoNavi,
-                    type: 'base',
-                    visible: type === 'autoNavi' || type === 'baidu',
-                    source: new ol.source.OSM({
-                        url: 'https://webrd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}'
-                    })
-                }),
-                new ol.layer.Tile({
-                    title: Strings.mapYandexMap,
-                    type: 'base',
-                    visible: type === 'yandexMap',
-                    source: new ol.source.XYZ({
-                        url: 'https://core-renderer-tiles.maps.yandex.net/tiles?l=map&x={x}&y={y}&z={z}',
-                        projection: 'EPSG:3395',
-                        attributions: '&copy; <a href="https://yandex.com/maps/">Yandex</a>'
-                    })
-                }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapCustom,
+                //     type: 'base',
+                //     visible: type === 'custom',
+                //     source: new ol.source.XYZ({
+                //         url: Ext.String.htmlDecode(server.get('mapUrl')),
+                //         attributions: ''
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapCustomArcgis,
+                //     type: 'base',
+                //     visible: type === 'customArcgis',
+                //     source: new ol.source.TileArcGISRest({
+                //         url: Ext.String.htmlDecode(server.get('mapUrl'))
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapBingRoad,
+                //     type: 'base',
+                //     visible: type === 'bingRoad',
+                //     source: new ol.source.BingMaps({
+                //         key: bingKey,
+                //         imagerySet: 'Road'
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapBingAerial,
+                //     type: 'base',
+                //     visible: type === 'bingAerial',
+                //     source: new ol.source.BingMaps({
+                //         key: bingKey,
+                //         imagerySet: 'Aerial'
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapBingHybrid,
+                //     type: 'base',
+                //     visible: type === 'bingHybrid',
+                //     source: new ol.source.BingMaps({
+                //         key: bingKey,
+                //         imagerySet: 'AerialWithLabels'
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapCarto,
+                //     type: 'base',
+                //     visible: type === 'carto',
+                //     source: new ol.source.XYZ({
+                //         url: 'https://cartodb-basemaps-{a-d}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+                //         attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+                //             'contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapAutoNavi,
+                //     type: 'base',
+                //     visible: type === 'autoNavi' || type === 'baidu',
+                //     source: new ol.source.OSM({
+                //         url: 'https://webrd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}'
+                //     })
+                // }),
+                // new ol.layer.Tile({
+                //     title: Strings.mapYandexMap,
+                //     type: 'base',
+                //     visible: type === 'yandexMap',
+                //     source: new ol.source.XYZ({
+                //         url: 'https://core-renderer-tiles.maps.yandex.net/tiles?l=map&x={x}&y={y}&z={z}',
+                //         projection: 'EPSG:3395',
+                //         attributions: '&copy; <a href="https://yandex.com/maps/">Yandex</a>'
+                //     })
+                // }),
                 new ol.layer.Tile({
                     title: Strings.mapYandexSat,
                     type: 'base',
@@ -129,15 +129,15 @@ Ext.define('Traccar.view.map.BaseMap', {
                     visible: type === 'osm',
                     source: new ol.source.OSM({})
                 }),
-                new ol.layer.Tile({
-                    title: Strings.mapLocationIqStreets,
-                    type: 'base',
-                    visible: type === 'locationIqStreets' || type === 'wikimedia' || !type,
-                    source: new ol.source.XYZ({
-                        url: 'https://{a-c}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=' + locationIqKey,
-                        attributions: '&copy; <a href="https://locationiq.com/">LocationIQ</a>'
-                    })
-                })
+                // new ol.layer.Tile({
+                //     title: Strings.mapLocationIqStreets,
+                //     type: 'base',
+                //     visible: type === 'locationIqStreets' || type === 'wikimedia' || !type,
+                //     source: new ol.source.XYZ({
+                //         url: 'https://{a-c}-tiles.locationiq.com/v3/streets/r/{z}/{x}/{y}.png?key=' + locationIqKey,
+                //         attributions: '&copy; <a href="https://locationiq.com/">LocationIQ</a>'
+                //     })
+                // })
             ]
         });
 
