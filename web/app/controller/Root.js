@@ -156,7 +156,20 @@ Ext.define('Traccar.controller.Root', {
     },
 
     showWelcomeLetter: function () {
-        console.log(Traccar.app.getUser());
+        let popup = document.getElementById("myPopup");
+        if(popup) {
+            popup.innerHTML = Traccar.app.getUser().data.name + "<br/><br/><br/>Dobro došli na aplikaciju za praćenje vozila i ljudi!<br/><br/>" +
+                "<img src='../../icon.png' width='100px' height='100px'/>";
+            setTimeout(function () {
+                popup.classList.toggle("show");
+            }, 500);
+            setTimeout(function () {
+                popup.classList.toggle("fadeout");
+            }, 7500);
+            setTimeout(function () {
+                popup.classList.toggle("hide");
+            }, 8500);
+        }
     },
 
     loadApp: function () {

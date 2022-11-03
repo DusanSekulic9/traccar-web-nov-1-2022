@@ -8,6 +8,73 @@
     background-color: rgba(255, 84, 104, 0.3);
 }
 
+.view-color-blue {
+    background-color: rgba(16, 245, 225, 0.3) !important;
+}
+
+
+.popup {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    display: inline-block;
+    cursor: pointer;
+    font-family: "Arial Black", serif;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 230px;
+    height: 230px;
+    background-color: #5fa2dd;
+    color: whitesmoke;
+    text-align: center;
+    border-radius: 10px;
+    padding: 8px 0;
+    position: fixed;
+    z-index: 1;
+    bottom: 100px;
+    right: 75px;
+    margin-left: -280px;
+    border-style: solid;
+    border-color: grey;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popup .fadeout {
+    -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+}
+
+.popup .hide {
+    visibility: hidden;
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
 .view-item-disabled {
     opacity: 0.5;
 }
