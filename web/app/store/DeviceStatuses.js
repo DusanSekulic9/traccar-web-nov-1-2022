@@ -31,5 +31,9 @@ Ext.define('Traccar.store.DeviceStatuses', {
         id: 'unknown',
         name: Strings.deviceStatusUnknown,
         color: 'view-color-yellow'
-    }]
+    }, {
+        id: 'redovno',
+        name: Strings.deviceStatusRedovno,
+        color: 'view-color-blue'
+         }]
 });
