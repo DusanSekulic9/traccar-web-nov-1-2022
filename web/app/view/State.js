@@ -37,6 +37,13 @@ Ext.define('Traccar.view.State', {
             baseCls: 'x-panel-header-title-default'
         }, {
             xtype: 'tbfill'
+        },{
+            xtype: 'button',
+            handler: 'onDevicesReportClick',
+            reference: 'devicesReportButton',
+            glyph: 'xf0ae@FontAwesome',
+            tooltip: "Izvestaj vozila",
+            tooltipType: 'title'
         }, {
             xtype: 'button',
             disabled: true,

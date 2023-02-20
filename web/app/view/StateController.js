@@ -59,6 +59,8 @@ Ext.define('Traccar.view.StateController', {
             this.lookupReference('computedAttributesButton').setDisabled(
                 Traccar.app.getBooleanAttributePreference('ui.disableComputedAttributes'));
         }
+        this.lookupReference('devicesReportButton').setDisabled(
+            !Traccar.app.getUser().get('administrator'));
         hideAttributesPreference = Traccar.app.getAttributePreference('ui.hidePositionAttributes');
         this.hideAttributes = {};
         if (hideAttributesPreference) {
@@ -76,6 +78,23 @@ Ext.define('Traccar.view.StateController', {
                 xtype: 'computedAttributesView'
             }
         }).show();
+    },
+
+    onDevicesReportClick: async function () {
+        // console.log("test")
+        // try {
+        //     const response = await fetch(`/api/reports/devices`, {
+        //         headers: {},
+        //     });
+        //     if (response.ok) {
+        //         setItems(await response.json());
+        //     } else {
+        //         throw Error(await response.text());
+        //     }
+        // } finally {
+        //     console.log("finished");
+        // }
+        window.location.assign(`/api/reports/devices`);
     },
 
     keys: (function () {
